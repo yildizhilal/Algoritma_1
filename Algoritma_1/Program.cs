@@ -12,13 +12,17 @@ namespace Algoritma_1
             
             GenerateCodes();
 
-            Console.WriteLine(check("A"));
-           
+            // test icin false donmesi gerek
+            Console.WriteLine(check("ABKGD123"));
+            // test icin 8 karakter olmama durumu
+            Console.WriteLine(check("EFGHKLMNPRTXYZ23"));
+            //test için true donmesi gerek
+            Console.WriteLine(check("2YTGH5AE"));
         }
 
-        public static void GenerateCodes()
+         static void GenerateCodes()
         {
-            int length = 8;
+            const int length = 8;
             const string chars = "ACDEFGHKLMNPRTXYZ234579";
             string[] uniqeCode = new string[1000];
             string code;
@@ -35,6 +39,9 @@ namespace Algoritma_1
                 if(Array.IndexOf(uniqeCode, code) == -1)
                 {
                     uniqeCode[i] = code;
+
+                    // test için
+                    Console.WriteLine(uniqeCode[i]);
                 }
                 else
                 {
@@ -51,9 +58,9 @@ namespace Algoritma_1
         static bool check(string code)
         {
             bool result;
-            int length = 8;
+            const int length = 8;
             int counter = 0;
-            var chars = "ACDEFGHKLMNPRTXYZ234579";
+            const string chars = "ACDEFGHKLMNPRTXYZ234579";
 
             // kodun 8 karakterden olusmasini kontrol eder
             if (code.Length!=length)
